@@ -9,6 +9,11 @@ function clearScreen() {
 }
 
 function addToScreen(value) {
+    if (value === ".") {
+        if (screen.textContent.includes(".")) {
+            return;
+        }
+    }
     if (result !== 0) {
         screen.textContent = value;
         return;
@@ -44,4 +49,8 @@ function calculate() {
             break;
     }
     screen.textContent = result.toString();
+}
+
+function undoOperation() {
+    screen.textContent = screen.textContent.slice(0, -1);
 }
